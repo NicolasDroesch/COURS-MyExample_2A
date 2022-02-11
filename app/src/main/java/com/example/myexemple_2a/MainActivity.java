@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button btEuros, btAc, btDevise, btApropos, btTaux;
     private EditText txtMontant;
+    private float taux;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.btAc.setOnClickListener(this);
         this.btApropos.setOnClickListener(this);
         this.btDevise.setOnClickListener(this);
+
+        this.taux = (float) 6.56;
     }
 
     @Override
@@ -40,6 +44,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btTaux:
                 break;
             case R.id.btEuros:
+                {
+                    float mt = 0;
+                    try
+                    {
+                        mt = Float.parseFloat(this.txtMontant.getText().toString());
+                        mt /= this.taux;
+                        this.txtMontant.setText("" + mt);
+                    }
+                    catch(NumberFormatException exp)
+                    {
+                        Toast.makeText(this, "Erreur de saisie", Toast.LENGTH_LONG).show();
+                    }
+                }
                 break;
             case R.id.btDevise:
                 break;
