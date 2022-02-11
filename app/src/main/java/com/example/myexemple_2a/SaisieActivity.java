@@ -19,6 +19,6 @@ public class SaisieActivity extends AppCompatActivity {
 
         this.txtNewDevise = (EditText) findViewById(R.id.newDevise);
         this.txtNewTaux = (EditText) findViewById(R.id.newTaux);
-        this.btRetour = (Button) findViewById(R.id.btRetour));
+        this.btRetour = (Button) findViewById(R.id.btRetour);
     }
 }
