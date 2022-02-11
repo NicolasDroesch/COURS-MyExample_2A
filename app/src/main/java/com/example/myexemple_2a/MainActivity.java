@@ -59,6 +59,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.btDevise:
+                {
+                    float mt = 0;
+                    try
+                    {
+                        mt = Float.parseFloat(this.txtMontant.getText().toString());
+                        mt *= this.taux;
+                        this.txtMontant.setText("" + mt);
+                    }
+                    catch(NumberFormatException exp)
+                    {
+                        Toast.makeText(this, "Erreur de saisie", Toast.LENGTH_LONG).show();
+                    }
+                }
                 break;
             case R.id.btAC:
                 this.txtMontant.setText("");
