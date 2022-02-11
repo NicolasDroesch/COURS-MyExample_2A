@@ -2,6 +2,7 @@ package com.example.myexemple_2a;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         txtMontant = (EditText) findViewById(R.id.Montant);
 
-
         this.btTaux.setOnClickListener(this);
         this.btEuros.setOnClickListener(this);
         this.btAc.setOnClickListener(this);
@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.btTaux:
+                Intent unIntent = new Intent(this, SaisieActivity.class);
+                this.startActivity(unIntent);
                 break;
             case R.id.btEuros:
                 {
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     try
                     {
                         mt = Float.parseFloat(this.txtMontant.getText().toString());
-                        mt /= this.taux;
+                        mt = mt / this.taux;
                         this.txtMontant.setText("" + mt);
                     }
                     catch(NumberFormatException exp)

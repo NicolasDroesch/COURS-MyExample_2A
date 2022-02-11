@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyExemple_2A">
         <activity
-            android:name=".Saisie"
+            android:name=".SaisieActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
