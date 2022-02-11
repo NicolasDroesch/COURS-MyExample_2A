@@ -36,6 +36,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.btDevise.setOnClickListener(this);
 
         this.taux = (float) 6.56;
+        if(this.getIntent().getStringExtra("devise") != null && this.getIntent().getStringExtra("taux") != null)
+        {
+            String devise = this.getIntent().getStringExtra("devise").toString();
+            this.taux = Float.parseFloat(this.getIntent().getStringExtra("taux").toString());
+            this.btDevise.setText(devise);
+        }
     }
 
     @Override
